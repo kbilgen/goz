@@ -100,6 +100,13 @@ def run_scheduler():
 def home():
     return "Randevu Kontrol Botu Çalışıyor!"
 
+@app.route('/status')
+def status():
+    return {
+        "status": "running",
+        "message": "Randevu Kontrol Botu aktif ve çalışıyor!",
+    }, 200
+
 if __name__ == '__main__':
     threading.Thread(target=run_scheduler, daemon=True).start()
     app.run(host='0.0.0.0', port=5000)
